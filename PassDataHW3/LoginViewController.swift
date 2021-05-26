@@ -21,14 +21,43 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private let loginName = "Ilia"
     private let password = "Password"
     
-    //MARK: - Ovveride Methods
+    //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         loginTextField.delegate = self
         passwordTextField.delegate = self
         passwordTextField.enablesReturnKeyAutomatically = true
     }
+    //MARK: - KeyBoard Methods
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        textField.text = ""
+        if textField == loginTextField {
+        textField.returnKeyType = .next
+        } else {
+            textField.returnKeyType = .done
+        }
+        return true
+    }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case loginTextField:
+            if  let nextResponder: UIResponder = passwordTextField.superview?.viewWithTag(1) {
+                nextResponder.becomeFirstResponder()
+            }
+        case passwordTextField:
+            LogInTapped(_sender: logInButton)
+        default:
+            textField.resignFirstResponder()
+        }
+       return true
+   }
+    
+    //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destinationVC = segue.destination as? WelcomeViewController else {return}
         destinationVC.loginName = loginTextField.text
@@ -37,9 +66,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func unwind ( _segue: UIStoryboardSegue) {
         loginTextField.text = ""
         passwordTextField.text = ""
-    }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
     
     //MARK: - IB ACTIONS
@@ -64,27 +90,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == loginTextField {
-        textField.returnKeyType = .next
-        } else {
-            textField.returnKeyType = .done
-            
-        }
-        return true
-    }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == loginTextField {
-            //Еще не нашел метод который перебрасывает курсор на другой TextFiled. Ищу) что-то похоже должно быть на passwordTextFiel.beganEditing
-            
-        }
-        if textField == passwordTextField {
-            LogInTapped(_sender: logInButton)
-        }
-        
-       return true
-   }
-
     // MARK: - PUBLIC METHODS
     func showBasicAlert (on vc : UIViewController, with title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

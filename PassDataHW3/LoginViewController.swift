@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
    //MARK: - IB Outlets
     @IBOutlet weak var loginTextField: UITextField!
@@ -22,6 +22,13 @@ class LoginViewController: UIViewController {
     private let password = "Password"
     
     //MARK: - Ovveride Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
+        passwordTextField.enablesReturnKeyAutomatically = true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destinationVC = segue.destination as? WelcomeViewController else {return}
         destinationVC.loginName = loginTextField.text
@@ -56,6 +63,27 @@ class LoginViewController: UIViewController {
             showBasicAlert(on: self, with: "Oooops", message: "Check your Password")
         }
     }
+   
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == loginTextField {
+        textField.returnKeyType = .next
+        } else {
+            textField.returnKeyType = .done
+            
+        }
+        return true
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == loginTextField {
+            //Еще не нашел метод который перебрасывает курсор на другой TextFiled. Ищу) что-то похоже должно быть на passwordTextFiel.beganEditing
+            
+        }
+        if textField == passwordTextField {
+            LogInTapped(_sender: logInButton)
+        }
+        
+       return true
+   }
 
     // MARK: - PUBLIC METHODS
     func showBasicAlert (on vc : UIViewController, with title: String, message: String) {
@@ -66,3 +94,7 @@ class LoginViewController: UIViewController {
         }
 
 }
+
+
+  
+

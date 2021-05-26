@@ -34,7 +34,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        textField.text = ""
         if textField == loginTextField {
         textField.returnKeyType = .next
         } else {

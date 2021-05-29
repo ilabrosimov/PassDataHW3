@@ -47,7 +47,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="LogInTappedWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pTg-tP-px1"/>
-                                                    <segue destination="Kxq-3P-fXH" kind="presentation" identifier="goToWelcomeVC" modalPresentationStyle="fullScreen" id="epi-ED-hd7"/>
+                                                    <segue destination="Y7n-Rv-I65" kind="presentation" identifier="goToWelcomeVC" modalPresentationStyle="fullScreen" id="epi-ED-hd7"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Cfk-ud-9tg">
@@ -131,7 +131,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Pc-Pr-gEu" userLabel="Log Out">
-                                <rect key="frame" x="105.5" y="400" width="109" height="68"/>
+                                <rect key="frame" x="105.5" y="351" width="109" height="68"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="35"/>
                                 <state key="normal" title="Log Out">
                                     <color key="titleColor" systemColor="secondarySystemBackgroundColor"/>
@@ -154,6 +154,7 @@
                             <constraint firstItem="VDx-be-vLb" firstAttribute="trailing" secondItem="zdm-Fx-iV0" secondAttribute="trailing" id="pN1-md-to5"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="WVj-mi-fCG"/>
                     <navigationItem key="navigationItem" id="iy8-hn-Ka3"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="VDx-be-vLb" id="Apo-ke-iLr"/>
@@ -163,16 +164,113 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fV-hv-oLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Yjg-kT-gfy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1340.1869158878503" y="69.97840172786178"/>
+            <point key="canvasLocation" x="2162" y="-204"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="MsK-pr-2KJ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Y7n-Rv-I65" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YFt-Kn-I2G">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Kxq-3P-fXH" kind="relationship" relationship="viewControllers" id="1Eq-Az-nxD"/>
+                        <segue destination="LdZ-eJ-2IJ" kind="relationship" relationship="viewControllers" id="HXI-Ku-Qkf"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u3l-MB-W1P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1338.75" y="69.718309859154928"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="3T4-ln-Oi0">
+            <objects>
+                <viewController id="bWQ-Cr-cNF" customClass="AboutViewController" customModule="PassDataHW3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KFq-73-SDj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNG-2m-cgI">
+                                <rect key="frame" x="129" y="267" width="67" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wqN-5a-fcM" kind="show" id="juu-gD-LYL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wgh-6R-a7c"/>
+                        <color key="backgroundColor" red="0.52310615780000003" green="0.52964222429999996" blue="0.70982521769999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1XP-nw-aTJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Meg-EO-icg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3159.375" y="490.14084507042253"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4lm-AX-GcS">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="wqN-5a-fcM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P7P-48-Iks">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Riders School" translatesAutoresizingMaskIntoConstraints="NO" id="W8D-mq-B8t">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uk3-0x-tkF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="W8D-mq-B8t" secondAttribute="bottom" id="1qx-mX-Zxx"/>
+                            <constraint firstItem="W8D-mq-B8t" firstAttribute="leading" secondItem="Uk3-0x-tkF" secondAttribute="leading" id="5dd-bo-aP0"/>
+                            <constraint firstAttribute="trailing" secondItem="W8D-mq-B8t" secondAttribute="trailing" id="sca-mF-fGl"/>
+                            <constraint firstItem="W8D-mq-B8t" firstAttribute="top" secondItem="Uk3-0x-tkF" secondAttribute="top" id="vlQ-5j-VFV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2hc-cp-3nq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VmV-Cs-hxF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3918.75" y="480.63380281690144"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="3oD-Dv-elX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LdZ-eJ-2IJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="About" id="2DJ-5q-i8i"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ClL-LX-6WX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bWQ-Cr-cNF" kind="relationship" relationship="rootViewController" id="qUh-Ml-dbW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sdu-Qv-YcA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2161.875" y="490.14084507042253"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Riders School" width="768" height="1024"/>
         <image name="WelcomeBackground" width="464" height="724"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

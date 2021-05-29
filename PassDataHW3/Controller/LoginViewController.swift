@@ -57,8 +57,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? WelcomeViewController else {return}
-        destinationVC.loginName = loginTextField.text
+       // Нужно прописать переходы с условием TabBarController
+       
+       
+           
     }
     
     @IBAction func unwind ( _segue: UIStoryboardSegue) {
@@ -68,11 +70,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - IB ACTIONS
     @IBAction func LogInTapped (_sender: UIButton!) {
-        guard loginTextField.text == loginName,
-              passwordTextField.text == password else {
-            showBasicAlert(on: self, with: "Mistake!", message: "Check out your login or password!")
-            return
-        }
+//        guard loginTextField.text == loginName,
+//              passwordTextField.text == password else {
+//            showBasicAlert(on: self, with: "Mistake!", message: "Check out your login or password!")
+//            return
+//        }
 
     }
     

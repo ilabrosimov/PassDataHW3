@@ -47,13 +47,14 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="LogInTappedWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pTg-tP-px1"/>
+                                                    <segue destination="Kxq-3P-fXH" kind="presentation" identifier="goToWelcomeVC" modalPresentationStyle="fullScreen" id="epi-ED-hd7"/>
                                                 </connections>
                                             </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Cfk-ud-9tg">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Cfk-ud-9tg">
                                                 <rect key="frame" x="0.0" y="58" width="220" height="36"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaG-Na-iAg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="81" height="36"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="95" height="36"/>
                                                         <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="15"/>
                                                         <state key="normal" title="Forgot Login?">
                                                             <color key="titleColor" systemColor="labelColor"/>
@@ -63,7 +64,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUU-tw-eJu">
-                                                        <rect key="frame" x="111" y="0.0" width="109" height="36"/>
+                                                        <rect key="frame" x="125" y="0.0" width="95" height="36"/>
                                                         <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="15"/>
                                                         <state key="normal" title="Forgot Password?">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -95,7 +96,6 @@
                         <outlet property="logInButton" destination="AxV-up-RYg" id="PH0-6K-bC0"/>
                         <outlet property="loginTextField" destination="koA-U4-EE7" id="1sK-pS-3g9"/>
                         <outlet property="passwordTextField" destination="enO-wn-De6" id="7Mr-a3-uaY"/>
-                        <segue destination="Kxq-3P-fXH" kind="show" identifier="goToWelcomeVC" id="qWj-Rn-e1d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

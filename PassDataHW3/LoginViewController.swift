@@ -45,11 +45,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case loginTextField:
-            if  let nextResponder: UIResponder = passwordTextField.superview?.viewWithTag(1) {
-                nextResponder.becomeFirstResponder()
-            }
+            passwordTextField.becomeFirstResponder()
         case passwordTextField:
             LogInTapped(_sender: logInButton)
+            performSegue(withIdentifier: "goToWelcomeVC", sender: nil)
         default:
             textField.resignFirstResponder()
         }
@@ -74,7 +73,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             showBasicAlert(on: self, with: "Mistake!", message: "Check out your login or password!")
             return
         }
-        performSegue(withIdentifier: "goToWelcomeVC", sender: nil)
+
     }
     
     @IBAction func forgotLoginTapped (_sender: UIButton!) {

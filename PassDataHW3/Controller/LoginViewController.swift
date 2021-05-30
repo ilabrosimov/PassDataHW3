@@ -17,10 +17,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var forgotLoginButton: UIButton!
     @IBOutlet weak var fotgotPasswordButton: UIButton!
     
-    //MARK: - Private Propereties
-    private let loginName = "Ilia"
-    private let password = "Password"
-    
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,10 +53,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       // Нужно прописать переходы с условием TabBarController
-       
-       
-           
+        guard let tabViewController = segue.destination as? UITabBarController else {
+            return
+        }
+        for viewController in tabViewController.viewControllers! {
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.loginName = "\(users[0].name) \(users[0].lastName)"
+            }
+            if let navigationVc = viewController as? UINavigationController {
+                let aboutVC = navigationVc.topViewController as! AboutViewController
+                aboutVC.index = 0
+            }
+        }
     }
     
     @IBAction func unwind ( _segue: UIStoryboardSegue) {
@@ -70,24 +74,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - IB ACTIONS
     @IBAction func LogInTapped (_sender: UIButton!) {
-//        guard loginTextField.text == loginName,
-//              passwordTextField.text == password else {
-//            showBasicAlert(on: self, with: "Mistake!", message: "Check out your login or password!")
-//            return
-//        }
+        guard validateLogin(login: loginTextField.text ?? ""), validatePassword(password: passwordTextField.text ?? "") else {
+            showBasicAlert(on: self, with: "Mistake!", message: "Check your login and password or Sign Up")
+            return
+        }
 
     }
     
     @IBAction func forgotLoginTapped (_sender: UIButton!) {
-        if  loginTextField.text != loginName {
+        if !validateLogin(login: loginTextField.text ?? "") {
             showBasicAlert(on: self, with: "Oooops", message: "Check your Login")
         }
     }
     
     @IBAction func forgotPasswordTapped (_sender: UIButton!) {
-        if  passwordTextField.text != password {
+        if !validatePassword(password: passwordTextField.text ?? "") {
             showBasicAlert(on: self, with: "Oooops", message: "Check your Password")
         }
+        
     }
    
     // MARK: - PUBLIC METHODS
@@ -98,6 +102,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         vc.present(alert, animated: true, completion: nil)
         }
 
+    func validateLogin (login:String) -> Bool {
+        for user in users {
+            if  login == user.login {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func validatePassword(password:String) -> Bool {
+        for user in users {
+            if  password  == user.password {
+                return true
+            }
+        }
+        return false
+    }
 }
 
 

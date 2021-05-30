@@ -7,5 +7,20 @@
 
 import UIKit
 class AboutViewController : UIViewController {
+    @IBOutlet weak var nameLabel : UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    
+    var index: Int?
+    override func viewDidLoad() {
+        guard let userIndex = index else {
+            return
+        }
+        nameLabel.text = users[userIndex].name
+        lastNameLabel.text = users[userIndex].lastName
+        ageLabel.text = String(users[userIndex].age)
+        
+    }
+    
     
 }

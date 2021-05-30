@@ -21,4 +21,9 @@ class WelcomeViewController : UIViewController {
         backgroundImageView.image =  UIImage(named: "WelcomeBackground")
       welcomeLabel.text = "Welcome, \(loginName ?? "")!"
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+
 }
+

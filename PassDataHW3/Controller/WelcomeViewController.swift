@@ -19,11 +19,7 @@ class WelcomeViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundImageView.image =  UIImage(named: "WelcomeBackground")
-      welcomeLabel.text = "Welcome, \(loginName ?? "")!"
+        welcomeLabel.text = "Welcome, \(loginName ?? "")!"
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
-
 }
 

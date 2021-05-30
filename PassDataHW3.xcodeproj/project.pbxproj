@@ -16,6 +16,7 @@
 		048629C3265D6DAE0035D7FA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048629C2265D6DAE0035D7FA /* WelcomeViewController.swift */; };
 		04B470FF26626295007C9FFA /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B470FE26626295007C9FFA /* AboutViewController.swift */; };
 		04B4710526627A32007C9FFA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B4710426627A32007C9FFA /* Profile.swift */; };
+		04B471072663AD12007C9FFA /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B471062663AD12007C9FFA /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		048629C2265D6DAE0035D7FA /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		04B470FE26626295007C9FFA /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		04B4710426627A32007C9FFA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		04B471062663AD12007C9FFA /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoViewController.swift; path = PassDataHW3/Controller/PhotoViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		04B47100266262EB007C9FFA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04B471062663AD12007C9FFA /* PhotoViewController.swift */,
 				048629AD265D65A00035D7FA /* SceneDelegate.swift */,
 				048629AB265D65A00035D7FA /* AppDelegate.swift */,
 				048629AF265D65A00035D7FA /* LoginViewController.swift */,
@@ -182,6 +185,7 @@
 				04B4710526627A32007C9FFA /* Profile.swift in Sources */,
 				048629C3265D6DAE0035D7FA /* WelcomeViewController.swift in Sources */,
 				048629AC265D65A00035D7FA /* AppDelegate.swift in Sources */,
+				04B471072663AD12007C9FFA /* PhotoViewController.swift in Sources */,
 				04B470FF26626295007C9FFA /* AboutViewController.swift in Sources */,
 				048629AE265D65A00035D7FA /* SceneDelegate.swift in Sources */,
 			);

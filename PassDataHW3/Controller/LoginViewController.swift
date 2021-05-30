@@ -53,16 +53,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let tabViewController = segue.destination as? UITabBarController else {
-            return
-        }
+        guard let tabViewController = segue.destination as? UITabBarController else {return}
         for viewController in tabViewController.viewControllers! {
+            guard let userIndex = returnUserIndex(login: loginTextField.text ?? "") else {return}
             if let welcomeVC = viewController as? WelcomeViewController {
-                welcomeVC.loginName = "\(users[0].name) \(users[0].lastName)"
+                welcomeVC.loginName = "\(users[userIndex].name) \(users[userIndex].lastName)"
             }
             if let navigationVc = viewController as? UINavigationController {
                 let aboutVC = navigationVc.topViewController as! AboutViewController
-                aboutVC.index = 0
+                aboutVC.userIndex = userIndex
             }
         }
     }
@@ -78,7 +77,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             showBasicAlert(on: self, with: "Mistake!", message: "Check your login and password or Sign Up")
             return
         }
-
     }
     
     @IBAction func forgotLoginTapped (_sender: UIButton!) {
@@ -91,7 +89,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if !validatePassword(password: passwordTextField.text ?? "") {
             showBasicAlert(on: self, with: "Oooops", message: "Check your Password")
         }
-        
     }
    
     // MARK: - PUBLIC METHODS
@@ -118,6 +115,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
         }
         return false
+    }
+    
+    func returnUserIndex (login : String) -> Int? {
+        for user in users.enumerated() {
+            if user.element.login == login {
+                return user.offset
+            }
+        }
+        return nil
     }
 }
 

@@ -14,24 +14,22 @@ class AboutViewController : UIViewController {
     @IBOutlet weak var hobbyLabel: UILabel!
     
     //MARK: - Public Properties
-    var userIndex: Int?
+    var user : Profile!
     
     //MARK:- LifeCycle Methods
     override func viewDidLoad() {
         self.title = "Информация о себе"
-        guard let index = userIndex else {
-            return
-        }
-        nameLabel.text = users[index].name
-        lastNameLabel.text = users[index].lastName
-        ageLabel.text = String(users[index].age)
-        hobbyLabel.text = users[index].hobby
+        
+        nameLabel.text = user.person.name
+        lastNameLabel.text = user.person.lastName
+        ageLabel.text = String(user.person.age)
+        hobbyLabel.text = user.person.hobby
     }
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let photoVC = segue.destination as? PhotoViewController else {return}
-        photoVC.userIndex = userIndex
+        photoVC.user = user
         
     }
     

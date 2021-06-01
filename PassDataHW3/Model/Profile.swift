@@ -5,19 +5,28 @@
 //  Created by ilabrosimov on 29.05.2021.
 //
 
-struct Profiles {
-    var login: String
-    var password : String 
-    
-    var name : String
-    var lastName: String
-    var age: Int
-    var hobby: String
-    let imageName : String?
-    
+
+
+struct Profile {
+    let login: String
+    let password : String
+    let person : Person
+    static func getProfileData () -> Profile {
+        return Profile(login: "ilabrosimov", password: "Password", person: Person.getPerson())
+    }
+}
+
+struct Person {
+    let name:String
+    let lastName: String
+    let age : Int
+    let hobby: String
+    let image: String
+    var fullName :String{
+        return name + " " + lastName
+    }
+    static func getPerson () -> Person {
+        return Person(name: "Ilia", lastName: "Abrosimov", age: 32, hobby: "Занимаюсь языком swift", image: "Riders School")
+    }
     
 }
-var users : [Profiles] = [
-    Profiles(login: "ilabrosimov", password: "Password", name: "Ilia", lastName: "Abrosimov", age: 32, hobby: "Занимаюсь языком Swift" , imageName: "Riders School"),
-    Profiles(login: "swift", password: "123", name: "Tim", lastName: "Cook", age: 60, hobby: "Разрабатываю apple девайсы" ,imageName: "Tim Cook")
-]

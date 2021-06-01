@@ -10,14 +10,11 @@ import UIKit
 class PhotoViewController: UIViewController {
     @IBOutlet weak var photoImage: UIImageView!
     
-    var userIndex : Int?
+    var user : Profile!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let index = userIndex else {
-            return
-        }
-        photoImage.image = UIImage(named: users[index].imageName ?? "")
+        photoImage.image = UIImage(named: user.person.image)
         
     }
 

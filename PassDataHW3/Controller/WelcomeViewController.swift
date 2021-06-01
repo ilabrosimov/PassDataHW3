@@ -13,13 +13,13 @@ class WelcomeViewController : UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     
     //MARK: - Public Properties
-    var loginName: String?
+    var user : Profile!
     
     //MARK:- LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundImageView.image =  UIImage(named: "WelcomeBackground")
-        welcomeLabel.text = "Welcome, \(loginName ?? "")!"
+        welcomeLabel.text = "Welcome, \(user.person.fullName)!"
     }
 }
 

@@ -17,6 +17,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var forgotLoginButton: UIButton!
     @IBOutlet weak var fotgotPasswordButton: UIButton!
     
+    private let user = Profile.getProfileData()
     //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,14 +55,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let tabViewController = segue.destination as? UITabBarController else {return}
-        for viewController in tabViewController.viewControllers! {
-            guard let userIndex = returnUserIndex(login: loginTextField.text ?? "") else {return}
-            if let welcomeVC = viewController as? WelcomeViewController {
-                welcomeVC.loginName = "\(users[userIndex].name) \(users[userIndex].lastName)"
+        let viewControllers = tabViewController.viewControllers!
+        viewControllers.forEach() {
+            if let welcomeVC = $0 as? WelcomeViewController {
+                welcomeVC.user = user
             }
-            if let navigationVc = viewController as? UINavigationController {
+            if let navigationVc = $0 as? UINavigationController {
                 let aboutVC = navigationVc.topViewController as! AboutViewController
-                aboutVC.userIndex = userIndex
+                aboutVC.user = user
             }
         }
     }
@@ -100,31 +101,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
 
     func validateLogin (login:String) -> Bool {
-        for user in users {
-            if  login == user.login {
+       if  login == user.login {
                 return true
-            }
-        }
-        return false
+       } else {return false}
     }
     
     func validatePassword(password:String) -> Bool {
-        for user in users {
-            if  password  == user.password {
-                return true
-            }
-        }
-        return false
-    }
-    
-    func returnUserIndex (login : String) -> Int? {
-        for user in users.enumerated() {
-            if user.element.login == login {
-                return user.offset
-            }
-        }
-        return nil
-    }
+        if  password == user.password {
+                 return true
+        } else {return false}
+     }
 }
 
 
